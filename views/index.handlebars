@@ -1,20 +1,47 @@
 <h1 class="text-center mb-3">{{title}}</h1>
-<form action="/api/members" method="POST" class="mb-4">
+<form action="/api/bookings" method="POST" class="mb-4">
   <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" name="name" class="form-control">
+    <label for="studentid">Student ID:</label>
+    <input type="text" name="studentid" class="form-control" required>
   </div>
   <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" class="form-control">
+    <label for="name">Name</label>
+    <input type="text" name="name" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="date">Demo date</label>
+    <input type="date" name="date" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="time">Demo Time</label>
+    <select id="time" name="time" required>
+      {{#each timeslots}}
+        <option value={{this}}>{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="demotool">Preferred demo tool</label>
+    <input type="text" name="demotool" class="form-control" required>
   </div>
   <input type="submit" value="Add Member" class="btn btn-primary btn-block">
 </form>
-<h4>Members</h4>
+<h4>Bookings</h4>
 <ul class="list-group">
-  {{#each members}}
-  <li class="list-group-item">{{this.name}}: {{this.email}}</li>
-  {{/each}}
+  <table>
+    <tr>
+      <th>Student Id</th>
+      <th>Name</th>
+      <th>Date and time</th>
+      <th>Demo tool</th>
+    </tr>
+    {{#each bookings}}
+    <tr>
+        <td>{{this.studentid}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.demoDateAndTime}}</td>
+        <td>{{this.demoTool}}</td>
+    </tr>
+    {{/each}}
+  </table>
 </ul>
-
-<a href="/api/members" class="btn btn-light mt-4">Visit API</a>
