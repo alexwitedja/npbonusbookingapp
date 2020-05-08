@@ -1,15 +1,5 @@
-# Express Crash Course
-
-> Files for the YouTube crash course
-
-- Setup & Install / Simple Server
-- Simple API
-- Routes, Request & Response
-- Express Router
-- Static Files
-- Template Engine Setup With Views
-- Middleware
-- Nodemon
+# Simple booking app
+Very simple with only express and local mongodb. View rendered using handlebars
 
 ## Quick Start
 
