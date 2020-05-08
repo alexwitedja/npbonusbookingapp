@@ -12,7 +12,7 @@ const app = express();
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017"
 
 // MongoDB Connection
-mongoose.connect(uri + '/npdemo', { useNewUrlParser: true })
+mongoose.connect(uri, { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
