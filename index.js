@@ -5,10 +5,11 @@ const logger = require('./middleware/logger');
 const timeslots = require('./Timeslot')
 const Booking = require('./models/booking')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 const app = express();
 
-const uri = "mongodb://localhost:27017"
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017"
 
 // MongoDB Connection
 mongoose.connect(uri + '/npdemo', { useNewUrlParser: true })
